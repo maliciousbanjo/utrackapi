@@ -10,6 +10,10 @@ var client_id = process.env.CLIENT_ID;
 var client_secret = process.env.CLIENT_SECRET;
 var redirect_uri = process.env.REDIRECT_URI;
 
+console.log("ID: " + client_id);
+console.log("Secret: " + client_secret);
+console.log("Redirect: " + redirect_uri);
+
 var stateKey = 'spotify_auth_state';
 var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
 var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
