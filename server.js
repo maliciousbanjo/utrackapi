@@ -33,7 +33,7 @@ app.use(function(req, res, next) {
  * Root-level page info
  */
 app.get('/', function (req, res) {
-    var output = 'Name: uTrackAPI\nVersion: 1.0.0\nDeveloper: Joseph Billstrom';
+    var output = 'Name: uTrackAPI\nVersion: 1.1.0\nDeveloper: Joseph Billstrom';
     res.end(output);
 });
 
@@ -173,9 +173,3 @@ app.post('/refreshToken', function (req, res) {
 var server = app.listen(server_port, server_ip_address, function () {
     console.log("Server running at " + server_ip_address + ", port " + server_port);
 });
-
-// var server = app.listen(8080, function () {
-//     var host = server.address().address;
-//     var port = server.address().port;
-//     console.log('Server running at', server.address());
-// })
