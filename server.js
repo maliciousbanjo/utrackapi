@@ -11,6 +11,8 @@ var client_secret = process.env.CLIENT_SECRET;
 var redirect_uri = process.env.REDIRECT_URI;
 
 var stateKey = 'spotify_auth_state';
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 
 // Create the server instance
 var app = express();
@@ -31,13 +33,6 @@ app.get('/', function (req, res) {
     res.end(output);
 });
 
-
-// /**
-//  * Return the API version
-//  */
-// app.get('/info', function (req, res) {
-//     res.end(JSON.stringify({version: '1.0.0'}));
-// });
 
 /**
  * Generate the Spotify OAuth URL, redirect
@@ -170,9 +165,6 @@ app.post('/refreshToken', function (req, res) {
         }
     })
 });
-
-var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
-var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 
 var server = app.listen(server_port, server_ip_address, function () {
     console.log("Server running at " + server_ip_address + ", port " + server_port);
