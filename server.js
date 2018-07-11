@@ -8,9 +8,9 @@ var fs = require('fs');
 require('dotenv').config();
 
 var options = {
-    ca: fs.readFileSync(),
-    key: fs.readFileSync(),
-    cert: fs.readFileSync()
+    //ca: fs.readFileSync(),
+    //key: fs.readFileSync(),
+    //cert: fs.readFileSync()
 }
 
 var client_id = process.env.CLIENT_ID;
