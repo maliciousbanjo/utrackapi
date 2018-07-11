@@ -2,16 +2,8 @@ var express = require('express');
 var request = require('request');
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
-var https = require('https');
-var fs = require('fs');
 
 require('dotenv').config();
-
-var options = {
-    //ca: fs.readFileSync(),
-    //key: fs.readFileSync(),
-    //cert: fs.readFileSync()
-}
 
 var client_id = process.env.CLIENT_ID;
 var client_secret = process.env.CLIENT_SECRET;
@@ -26,9 +18,9 @@ var app = express();
 app.use(cookieParser());
 app.use(express.json());
 app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://localhost:8100");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.header("Access-Control-Allow-Credentials", "true");
+    //res.header("Access-Control-Allow-Origin", "http://localhost:8100");
+    //res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    //res.header("Access-Control-Allow-Credentials", "true");
     next();
   });
 
@@ -176,7 +168,3 @@ app.post('/refreshToken', function (req, res) {
 var server = app.listen(server_port, server_ip_address, function () {
     console.log("Server running at " + server_ip_address + ", port " + server_port);
 });
-
-// var httpsServer = https.createServer(options, app).listen(server_port, server_ip_address, function() {
-//     console.log("Server listening on port " + server_port);
-// });
